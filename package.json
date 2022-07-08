@@ -1,0 +1,15 @@
+{
+	"scripts": {
+		"start": "tsc-watch --project . --outDir ./dist --onSuccess \"nodemon ./dist/bin/www.js\"",
+		"dev": "nodemon --watch './**/*.ts' --exec 'ts-node' ./src/index.ts"
+	},
+	"devDependencies": {
+		"nodemon": "^2.0.16",
+		"prettier": "^2.6.2",
+		"ts-jest": "^28.0.2",
+		"ts-node": "^10.7.0",
+		"tsc-watch": "^5.0.3",
+		"typescript": "^4.6.4"
+	},
+	"dependencies": {}
+}
