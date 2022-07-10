@@ -8,7 +8,7 @@
 
 ## TODO
 
-- [ ] Add a real `committer`.
+- [x] Add a real `committer`.
 - [ ] Add multiforlder support.
 - [ ] Add a `--dry-run` option.
 - [ ] Add CLI support.
