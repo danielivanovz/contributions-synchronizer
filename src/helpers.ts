@@ -40,7 +40,26 @@ export const getLastSync = () => {
 }
 
 export const isAfterLastSync = (date: string): boolean =>
-  new Date(date) >= new Date('2022-07-05T18:37:25.000Z')
+  new Date(date) >= new Date(getLastSync().toISOString())
 
-export const createCommitAt = (date: string): void =>
-  console.info(`git commit --date="${date}" --author="${config.author}" -m "Sync"`)
+export const stageFileAt = async (date: string) =>
+  execFileSync('git', ['add', './commits/' + date + '.dat'])
+
+export const createFileAt = (date: string) => {
+  return new Promise(function (resolve, reject) {
+    fs.writeFile('./commits/' + date + '.dat', '', function (err) {
+      if (err) reject(err)
+      else resolve(true)
+    })
+  })
+}
+
+export const createCommitAt = (date: string) => {
+  execFileSync('git', [
+    'commit',
+    '--date="' + date + '"',
+    '--author="' + config.commiter + '"',
+    '-m "Sync for ' + date + '"',
+    '--allow-empty'
+  ])
+}

@@ -2,12 +2,12 @@ interface IConfigurations {
   paths: string
   author: string
   separator: string
-  lastSync: string
+  commiter: string
 }
 
 export const config: IConfigurations = {
   paths: '/random/directory/name/',
   author: 'your@email.com',
   separator: '@_separator_@',
-  lastSync: 'xx-xx-xxTxx:xx:xx.000Z'
+  commiter: 'Name Surname <this.repo@mail.com>'
 }
